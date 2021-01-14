@@ -1,0 +1,22 @@
+{
+  "name": "htkala",
+  "version": "1.0.1",
+  "description": "A simple module for making http requests",
+  "main": "http-module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "http",
+    "front-end",
+    "request",
+    "promise",
+    "asynchronous"
+  ],
+  "author": "kinanee Samson",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.6.1"
+  }
+}

@@ -1,7 +1,7 @@
 
-const HttpModule = {
+const HttpModule = function() {
 
-  get (url, obj ={}, headers = {}) {
+  function get (url, obj ={}, headers = {}) {
     return new Promise((resolve, reject)=>{
       const XHR = new XMLHttpRequest()
       XHR.open("GET", url);
@@ -19,7 +19,6 @@ const HttpModule = {
       XHR.onload = function(){
         if(this.status == 200){
           var result = JSON.parse(this.responseText)
-          // console.log(response)
           resolve(this.response)
         }
         else{
@@ -27,9 +26,9 @@ const HttpModule = {
         }
       }
     })
-  },
+  }
   
-   post (url, obj, headers = {}){
+  function post (url, obj, headers = {}){
     return new Promise((resolve, reject)=>{
       const XHR = new XMLHttpRequest()
       XHR.open("POST", url);
@@ -40,9 +39,8 @@ const HttpModule = {
       }
       XHR.send(JSON.stringify(obj))
       XHR.onload = function(){
-        if(this.status == 201){
-          var result = JSON.parse(this.responseText)
-          resolve(result)
+        if(this.status == 201 || 201){
+          resolve(this.responseText || {message: 'post request successful'})
         }
         else{
           reject(new Error('Error Making request, this is what we found '+this.status))
@@ -50,6 +48,9 @@ const HttpModule = {
       }
     })
   }
+
+  return {get: get, post: post}
 }
 
 export default HttpModule
+

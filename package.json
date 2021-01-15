@@ -15,6 +15,10 @@
     "asynchronous"
   ],
   "author": "kinanee Samson",
+ "repository": {
+  "type" : "git",
+  "url" : "https://github.com/Kalashin1/htkala"
+  },
   "license": "ISC",
   "dependencies": {
     "jasmine": "^3.6.1"

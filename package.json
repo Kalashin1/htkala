@@ -1,6 +1,6 @@
 {
   "name": "htkala",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple module for making http requests",
   "main": "http-module.js",
   "scripts": {
@@ -15,9 +15,9 @@
     "asynchronous"
   ],
   "author": "kinanee Samson",
- "repository": {
-  "type" : "git",
-  "url" : "https://github.com/Kalashin1/htkala"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kalashin1/htkala"
   },
   "license": "ISC",
   "dependencies": {

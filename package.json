@@ -1,6 +1,6 @@
 {
   "name": "htkala",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple module for making http requests",
   "main": "http-module.js",
   "scripts": {
@@ -21,9 +21,7 @@
   },
   "license": "ISC",
   "dependencies": {
-
     "jasmine": "^3.6.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

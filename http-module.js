@@ -1,56 +1,32 @@
+import HandleReq from './Handler.js'
 
 const HttpModule = function() {
 
-  function get (url, obj ={}, headers = {}) {
-    return new Promise((resolve, reject)=>{
-      const XHR = new XMLHttpRequest()
-      XHR.open("GET", url);
-      if(typeof headers !== 'undefined'){
-        for(var key in headers){
-          XHR.setRequestHeader(key, headers[key])
-        }
-      }
-      if(typeof obj !== 'undefined'){
-        XHR.send(JSON.stringify(obj))
-      }
-      else {
-        XHR.send()
-      }
-      XHR.onload = function(){
-        if(this.status == 200){
-          var result = JSON.parse(this.responseText)
-          resolve(this.response)
-        }
-        else{
-          reject(new Error('Error Making request, this is what we found '+this.status))
-        }
-      }
-    })
+  function get (url, headers = {}) {
+    return HandleReq('GET', url, {}, headers)    
   }
   
   function post (url, obj, headers = {}){
-    return new Promise((resolve, reject)=>{
-      const XHR = new XMLHttpRequest()
-      XHR.open("POST", url);
-      if(typeof headers !== 'undefined'){
-        for(var key in headers){
-          XHR.setRequestHeader(key, headers[key])
-        }
-      }
-      XHR.send(JSON.stringify(obj))
-      XHR.onload = function(){
-        if(this.status == 201 || 201){
-          resolve(this.responseText || {message: 'post request successful'})
-        }
-        else{
-          reject(new Error('Error Making request, this is what we found '+this.status))
-        }
-      }
-    })
+    return HandleReq('POST', url, obj, headers)
   }
 
-  return {get: get, post: post}
+  function del (url, obj, headers = {}){
+    return HandleReq('DELETE', url, obj, headers)
+  }
+
+  function patch (url, obj, headers = {}){
+    return HandleReq('PATCH', url, obj, headers)
+  }
+
+  function put (url, obj, headers = {}){
+    return HandleReq('PUT', url, obj, headers)
+  }
+
+  return {get, post, del, patch, put}
 }
+
+
+
 
 export default HttpModule
 

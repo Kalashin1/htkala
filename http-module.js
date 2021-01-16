@@ -11,7 +11,7 @@ const HttpModule = function() {
         }
       }
       if(typeof obj !== 'undefined'){
-        XHR.send(obj)
+        XHR.send(JSON.stringify(obj))
       }
       else {
         XHR.send()
